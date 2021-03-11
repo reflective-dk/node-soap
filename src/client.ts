@@ -501,7 +501,7 @@ export class Client extends EventEmitter {
 
         // When the output element cannot be looked up in the wsdl, play it safe and
         // don't stream
-        if (response.statusCode !== 200 || !output || !output.$lookupTypes) {
+        if (response.statusCode !== 200 || !output) {
           getStream(response).then((body) => {
             this.lastResponse = body;
             this.lastResponseHeaders = response && response.headers;
